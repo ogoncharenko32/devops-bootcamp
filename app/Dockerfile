@@ -1,5 +1,5 @@
 # Базовий образ (повна версія, щоб уникнути проблем з бібліотеками)
-FROM node:20
+FROM node:20-bullseye
 
 # Робоча директорія
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Встановлюємо залежності (рекомендовано використовувати npm ci)
-RUN npm install --legacy-peer-deps
+RUN npm install --omit=dev
 
 # Копіюємо решту коду
 COPY . .
